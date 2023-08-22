@@ -1,12 +1,24 @@
 //#region Imports
 import React, { Component } from 'react';
 import Car from './Car';
-import MyHead from './myHeaderOne'
 import './css/myCss.css';
+import styled from 'styled-components';
 
-// Importing a module won't work on children
-import styles from './css/myCss.module.css';
 //#endregion
+
+const Title = styled.h1`
+    color : red;
+    font-size : 80px;
+    text-decoration: underline;
+`
+
+const Button = styled.button`
+    background : black;
+    color: #ffffff;
+    padding: 12px 13px; 
+    font-size: 15px;
+`
+
 
 class Form extends Component {
 
@@ -49,20 +61,20 @@ class Form extends Component {
             <div>
                 <Car width="60" height="60" color={this.state.color}/>
 
-                <div className='row d-flex justify-content-center'>
-                    <h1 className="py-2 bg-primary bg-opacity-75 rounded w-75 text-white">Commentaire 1</h1>
+                <div>
+                    <Title>Commentaire 1</Title>
                 </div>
                     
 
-                <form onSubmit={this.handleSubmitForm} className='bg-primary-subtle mx-5 p-4'>
-                    <div className="row d-flex justify-content-center">
-                        <label className="h5" style = {{ marginRight : '10px'}}>Pseudo</label>
-                        <input className="form-control w-50" type="text" value={this.state.username} onChange={this.handlePseudo} /> 
+                <form onSubmit={this.handleSubmitForm}>
+                    <div>
+                        <label style = {{ marginRight : '10px'}}>Pseudo</label>
+                        <input type="text" value={this.state.username} onChange={this.handlePseudo} /> 
                     </div>
 
-                    <div className='row d-flex justify-content-center mb-5'>
-                        <label className='h5'>Couleur</label>
-                        <select className="form-select w-50" value={this.state.color} onChange={this.handleColor}>
+                    <div>
+                        <label>Couleur</label>
+                        <select value={this.state.color} onChange={this.handleColor}>
                             {
                                 this.state.colors.map((color, index) => {
                                     return <option value={color} key={index}>{color}</option>
@@ -71,12 +83,13 @@ class Form extends Component {
                         </select>
                     </div>
 
-                    <div className="row d-flex justify-content-center mb-5">
-                        <label className='h5'>Commentaire</label>
-                        <textarea className="form-control w-50" value={this.state.comment} onChange={this.handleComments}></textarea>
+                    <div>
+                        <label>Commentaire</label>
+                        <textarea value={this.state.comment} onChange={this.handleComments}></textarea>
                     </div>
 
-                    <button type="submit" className="btn btn-primary">Soumettre</button>
+                    <button type="submit">Soumettre</button>
+                    <Button>Styled button</Button>
                     
                 </form>
             </div>
