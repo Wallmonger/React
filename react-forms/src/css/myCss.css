@@ -1,0 +1,24 @@
+.blue {
+    color : blue;
+    transition: .18s ease-in;
+    cursor: pointer;
+}
+
+.blue:hover {
+    color : skyblue;
+}
+
+.red {
+    color: red;
+}
+
+.red:hover {
+    color: rgb(255, 183, 0);
+    transition: .18s ease-in;
+    cursor: crosshair;
+}
+
+.bigFont {
+    font-size: 40px;
+    font-weight: bold;
+}
