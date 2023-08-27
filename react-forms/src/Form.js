@@ -1,9 +1,9 @@
 //#region Imports
 import React, { Component } from 'react';
-import Car from './Car';
+import Car from './components/Car';
 import './css/myCss.css';
 import styled from 'styled-components';
-import CustomBtn from './customBtn';
+import CustomBtn from './components/customBtn';
 
 //#endregion
 
@@ -58,15 +58,30 @@ class Form extends Component {
 
     render () {
 
+        const success = {
+            backgroundColor: 'green',
+            color: 'black',
+        }
+
+        const danger = {
+            backgroundColor : 'red',
+            borderRadius : '20px'
+        }
+
+        const primary = {
+            backgroundColor : 'blue',
+            borderRadius: '5px'
+        }
+
         return (
             <div>
                 <Car width="60" height="60" color={this.state.color}/>
 
                 <div>
                     <Title>Commentaire 1</Title>
-                    <CustomBtn>Normal</CustomBtn>
-                    <CustomBtn fontColor = 'white' background="red" radius ='25px'>Red</CustomBtn>
-                    <CustomBtn fontColor = "white" background="blue" radius= "5px"></CustomBtn>
+                    <CustomBtn btnStyle={success}>Normal</CustomBtn>
+                    <CustomBtn btnStyle={danger}>Red</CustomBtn>
+                    <CustomBtn btnStyle={primary}>Blue</CustomBtn>
                 </div>
                     
 

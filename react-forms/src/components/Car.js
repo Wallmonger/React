@@ -1,5 +1,5 @@
 import React from 'react';
-import car from './car.svg';
+
 
 const Car = ({width, height, color}) => {
     return (
