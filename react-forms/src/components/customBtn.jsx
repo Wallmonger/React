@@ -1,6 +1,6 @@
 import React from 'react';
 
-const customBtn = ({btnStyle, children}) => {
+const customBtn = ({btnStyle, children, callback}) => {
 
     const customBtnStyle = {
         backgroundColor : 'grey',
@@ -12,11 +12,12 @@ const customBtn = ({btnStyle, children}) => {
         textDecoration: 'none',
         borderRadius: '7px',
         display : 'block',
-        margin: '5px auto'
+        margin: '5px auto',
+        cursor: 'pointer'
 
     }
 
-    return <button style={{ ...customBtnStyle, ...btnStyle }}>{children}</button>
+    return <button onClick={callback} style={{ ...customBtnStyle, ...btnStyle }}>{children}</button>
 }
 
 export default customBtn;

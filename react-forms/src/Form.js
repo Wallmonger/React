@@ -54,24 +54,24 @@ class Form extends Component {
         console.log(`Username : ${this.state.username}, Color : ${this.state.color}, Comment: ${this.state.comment}`);
     }
 
+    randColorStatus = () => {
+        let randNumb = Math.floor(Math.random() * 4);
+        this.setState({
+            color: this.state.colors[randNumb]
+        });
+        console.log(this.state.color);
+    }
+
     //#endregion
 
     render () {
 
         const success = {
             backgroundColor: 'green',
-            color: 'black',
+            color: 'white'
         }
 
-        const danger = {
-            backgroundColor : 'red',
-            borderRadius : '20px'
-        }
-
-        const primary = {
-            backgroundColor : 'blue',
-            borderRadius: '5px'
-        }
+        
 
         return (
             <div>
@@ -79,9 +79,7 @@ class Form extends Component {
 
                 <div>
                     <Title>Commentaire 1</Title>
-                    <CustomBtn btnStyle={success}>Normal</CustomBtn>
-                    <CustomBtn btnStyle={danger}>Red</CustomBtn>
-                    <CustomBtn btnStyle={primary}>Blue</CustomBtn>
+                    <CustomBtn btnStyle={success} callback={this.randColorStatus}>Change status</CustomBtn>
                 </div>
                     
 
