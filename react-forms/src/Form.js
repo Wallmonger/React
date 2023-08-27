@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Car from './Car';
 import './css/myCss.css';
 import styled from 'styled-components';
+import CustomBtn from './customBtn';
 
 //#endregion
 
@@ -63,6 +64,9 @@ class Form extends Component {
 
                 <div>
                     <Title>Commentaire 1</Title>
+                    <CustomBtn>Normal</CustomBtn>
+                    <CustomBtn fontColor = 'white' background="red" radius ='25px'>Red</CustomBtn>
+                    <CustomBtn fontColor = "white" background="blue" radius= "5px"></CustomBtn>
                 </div>
                     
 
