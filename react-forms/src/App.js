@@ -1,5 +1,6 @@
 import React from 'react';
 import Welcome from './components/Welcome';
+import Template from './components/Template';
 // import Form from "./Form";
 // import CustomBtn from './components/customBtn';
 
@@ -12,7 +13,8 @@ function App() {
     <>
       {/* <Form head={true}/>
       <CustomBtn callback={sayHello}>salut</CustomBtn> */}
-      <Welcome/>
+      <Template/>
+      <Welcome />
     </>
   );
 }

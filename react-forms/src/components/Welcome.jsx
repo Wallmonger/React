@@ -3,14 +3,11 @@ import {Container, Row, Col, Button} from 'react-bootstrap';
 
 const Welcome = () => {
     return (
-        <Container fluid="md">
-            
-                <Button variant="outline-primary" size="sm">Salut</Button>
-            
+        <Container fluid="md mt-4 bg-dark bg-opacity-25">    
             <Row>
-                <Col xs={3} md={4} style={{backgroundColor : 'blue'}}>Column 1</Col>
-                <Col xs={6} md={4} style={{backgroundColor : 'green'}}>Coluumn 2</Col>
-                <Col xs={3} md={4} style={{backgroundColor : 'yellow'}}>Column 3</Col>
+                <Col>
+                    <p className='fw-bold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum nisi beatae aliquam quis nihil cum amet laboriosam in itaque suscipit voluptatem a soluta, ab enim? Aliquam veniam odit dolores quidem.</p>
+                </Col>
             </Row>
         </Container>
     )
