@@ -1,9 +1,7 @@
 import React from 'react';
-import Welcome from './components/Welcome';
-import Template from './components/Template';
-import Buttons from './components/Buttons';
-// import Form from "./Form";
-// import CustomBtn from './components/customBtn';
+
+import Form from "./Form";
+import {Button} from 'react-bootstrap';
 
 
 function App() {
@@ -12,11 +10,11 @@ function App() {
 
   return (
     <>
-      {/* <Form head={true}/>
-      <CustomBtn callback={sayHello}>salut</CustomBtn> */}
-      <Template/>
-      <Welcome />
-      <Buttons />
+      <Form head={true}/>
+      <div className='text-center'>
+        <Button onClick={sayHello} variant="secondary" size="lg">Alert</Button>
+      </div>
+ 
     </>
   );
 }

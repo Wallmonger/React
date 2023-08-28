@@ -1,24 +1,20 @@
 //#region Imports
 import React, { Component } from 'react';
+import {Container, Button} from 'react-bootstrap';
 import Car from './components/Car';
 import './css/myCss.css';
 import styled from 'styled-components';
-import CustomBtn from './components/customBtn';
+
 
 //#endregion
 
 const Title = styled.h1`
-    color : red;
-    font-size : 80px;
-    text-decoration: underline;
+    color : black;
+    font-size : 40px;
+    text-align: center;
 `
 
-const Button = styled.button`
-    background : black;
-    color: #ffffff;
-    padding: 12px 13px; 
-    font-size: 15px;
-`
+
 
 
 class Form extends Component {
@@ -74,43 +70,57 @@ class Form extends Component {
         
 
         return (
-            <div>
-                <Car width="60" height="60" color={this.state.color}/>
+            <Container>
+                <Container className='d-flex justify-content-center'>
+                     <Car width="60" height="60" color={this.state.color}/>
+                </Container>
+               
 
-                <div>
-                    <Title>Commentaire 1</Title>
-                    <CustomBtn btnStyle={success} callback={this.randColorStatus}>Change status</CustomBtn>
+                <div className='text-center'>
+                    <Title>Un titre</Title>
+                    <Button className='' onClick={this.randColorStatus}>Change status</Button>
                 </div>
                     
+                <Container>
+                    <form onSubmit={this.handleSubmitForm}>
+                        <div>
+                            <label style = {{ marginRight : '10px'}}>Pseudo</label>
+                            <input type="text" value={this.state.username} onChange={this.handlePseudo}  className='form-control'/> 
+                        </div>
 
-                <form onSubmit={this.handleSubmitForm}>
-                    <div>
-                        <label style = {{ marginRight : '10px'}}>Pseudo</label>
-                        <input type="text" value={this.state.username} onChange={this.handlePseudo} /> 
-                    </div>
+                        <div>
+                            <label>Couleur</label>
+                            <select value={this.state.color} onChange={this.handleColor} className='form-control'>
+                                {
+                                    this.state.colors.map((color, index) => {
+                                        return <option value={color} key={index}>{color}</option>
+                                    })
+                                }
+                            </select>
 
-                    <div>
-                        <label>Couleur</label>
-                        <select value={this.state.color} onChange={this.handleColor}>
-                            {
-                                this.state.colors.map((color, index) => {
-                                    return <option value={color} key={index}>{color}</option>
-                                })
-                            }
-                        </select>
+                        </div>
 
-                    </div>
+                        <div>
+                            <label>Commentaire</label>
+                            <textarea value={this.state.comment} onChange={this.handleComments} className='form-control'></textarea>
+                            <Button 
+                                type="submit" 
+                                className='btn btn-primary mt-2' 
+                                style={{display : 'block', margin: '5px auto'}}
+                            >Soumettre
+                            </Button>
+                        </div>
 
-                    <div>
-                        <label>Commentaire</label>
-                        <textarea value={this.state.comment} onChange={this.handleComments}></textarea>
-                    </div>
+                        
+                       
+                        
+                    </form>
+                </Container>
+                
 
-                    <button type="submit">Soumettre</button>
-                    <Button>Styled button</Button>
-                    
-                </form>
-            </div>
+
+                
+            </Container>
         )
     }
 }
