@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <LifeCycle />
+          <LifeCycle name="Jambon"/>
       </div>
     );
   }

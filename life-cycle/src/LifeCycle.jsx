@@ -3,9 +3,10 @@
 // rce shortcut for class component
 // rconst to generate default constructor
 // cdm to generate componentDidMount
+// cdup to generate componentDidUpdate
+// clg consolelog
 //#endregion
 import { Component } from 'react'
-import ChildComponent from './Components/ChildComponent';
 
 class LifeCycle extends Component {
 
@@ -20,25 +21,37 @@ class LifeCycle extends Component {
 
         console.log(`Step ${this.state.step} | Location : Constructor`)
     }
+    
+    
 
     // Only accessible when everything including children are loaded
     componentDidMount() { 
         console.log(`Step ${this.state.step} | Location : componentDidMount()`);
+        this.setState({
+            name :  this.props.name,
+            step : this.state.step +1
+        })
+
+        console.log(`Step ${this.state.step} | Location : After setState in componentDidMount()`)
     }
 
-  render() {
+    componentDidUpdate(prevProps, prevState) {
+        console.log(`Step ${this.state.step} | Location : ComponentDidUpdate`);
+        console.log(prevState);
+        console.log(this.state)
+    } 
 
-    console.log(`Step ${this.state.step} | Location : Render`)
 
-    return (
-        <div>
-            { console.log(`Step ${this.state.step} | Location : Update DOM`)}
-            <p>Loading : Step {this.state.step}</p>
-            <p>Name : {this.state.name}</p>
+    render() {
+        console.log(`Step ${this.state.step} | Location : Render`)
 
-            <ChildComponent />
-        </div>
-    )
+        return (
+            <div>
+                { console.log(`Step ${this.state.step} | Location : Update DOM`)}
+                <p>Loading : Step {this.state.step}</p>
+                <p>Name : {this.state.name}</p>
+            </div>
+        )
   }
 
 }
