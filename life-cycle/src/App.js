@@ -6,7 +6,14 @@ import MyComponent from './Components/MyComponent';
 class App extends Component {
   
   state = {
-        display : true
+        display : true,
+        age : 24
+  }
+
+  addOneYear = () => {
+    this.setState((prevState) => ({
+      age : prevState.age + 1
+    }))
   }
 
   switchDisplay = () => {
@@ -27,7 +34,8 @@ class App extends Component {
           <button onClick={this.switchDisplay}>Click here</button>
           <hr />
 
-          <MyComponent />
+          <MyComponent age={this.state.age} />
+          <button onClick={this.addOneYear}>Change props</button>
       </div>
     );
   }
