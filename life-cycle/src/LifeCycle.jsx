@@ -5,6 +5,7 @@
 // cdm to generate componentDidMount
 // cdup to generate componentDidUpdate
 // clg consolelog
+// cwun componentWillUnmount()
 //#endregion
 import { Component } from 'react'
 
@@ -41,12 +42,16 @@ class LifeCycle extends Component {
         console.log(this.state)
     } 
 
+    componentWillUnmount() {
+        console.log('this is componentWillUnmount()');
+    }
+
 
     render() {
         console.log(`Step ${this.state.step} | Location : Render`)
 
         return (
-            <div>
+            <div className='borderBox'>
                 { console.log(`Step ${this.state.step} | Location : Update DOM`)}
                 <p>Loading : Step {this.state.step}</p>
                 <p>Name : {this.state.name}</p>

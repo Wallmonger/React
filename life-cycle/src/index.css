@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.borderBox {
+  width : 500px;
+  margin : 10px auto;
+  font-size: large;
+  font-weight: 600;
+  color: white;
+  background-color: skyblue;
+  border : 1px dashed black;
+  border-radius: 5px;
+  animation: little 5s ease-in infinite;
+  animation-direction: alternate;
+}
+
+@keyframes little {
+  from {
+    background-color : rgb(0, 41, 57);
+  }
+  to {
+    background-color: blueviolet;
+  }
+}
