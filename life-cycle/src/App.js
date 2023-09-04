@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import LifeCycle from './LifeCycle';
+import MyComponent from './Components/MyComponent';
 
 class App extends Component {
   
@@ -24,6 +25,9 @@ class App extends Component {
           { showComponent }
 
           <button onClick={this.switchDisplay}>Click here</button>
+          <hr />
+
+          <MyComponent />
       </div>
     );
   }

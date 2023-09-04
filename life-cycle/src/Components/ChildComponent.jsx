@@ -9,16 +9,16 @@ class ChildComponent extends Component {
          
       }
 
-      console.log('Location : Children Constructor')
+    //   console.log('Location : Children Constructor')
 
     }
 
     componentDidMount() { 
-        console.log('Location : Children componentDidMount');
+        // console.log('Location : Children componentDidMount');
     }
 
     render() {
-        console.log('Location : Children Render')
+        // console.log('Location : Children Render')
         return (
             <div>
                 {console.log('Location : Children Update DOM')}
