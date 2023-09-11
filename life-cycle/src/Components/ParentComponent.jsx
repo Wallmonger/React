@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SimpleComp from './SimpleComponent';
+import PureComp from './PureComponent';
 
 class ParentComponent extends Component {
     constructor(props) {
@@ -13,14 +14,13 @@ class ParentComponent extends Component {
     shouldComponentUpdate(nextProps, nextState) { 
         console.log('ShouldComponentUpdate()');    
 
-        console.log(this.state.name);
-        console.log(nextState);
+        // console.log(this.state.name);
+        // console.log(nextState);
 
-        if (this.state.name !== nextState.name) 
-            return true;
+        // if (this.state.name !== nextState.name) 
+        //     return true;
         
-        return false
-
+        return true;
     }
 
     changeName = () => {
@@ -35,7 +35,8 @@ class ParentComponent extends Component {
 
         return (
             <div>
-                <SimpleComp />
+                <SimpleComp name={this.state.name}/>
+                <PureComp name={this.state.name}/>
                 <button onClick={this.changeName}>Change State Name</button>
                 <p>{this.state.name}</p>
             </div>

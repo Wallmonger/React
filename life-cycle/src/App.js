@@ -1,8 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import ParentComponent from './Components/ParentComponent'
-// import LifeCycle from './LifeCycle';
-// import MyComponent from './Components/MyComponent';
+
 
 class App extends Component {
 
@@ -18,7 +17,7 @@ class App extends Component {
 
 export default App;
 
-
+//#region Comments
 // Previous cycles
 // state = {
 //       display : true,
@@ -54,3 +53,4 @@ export default App;
 //     </div>
 //   );
 // }
+//#endregion 
