@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import SimpleComp from './SimpleComponent';
 import PureComp from './PureComponent';
+import FunctionComp from './FunctionComponent';
 
 class ParentComponent extends Component {
     constructor(props) {
@@ -11,17 +12,17 @@ class ParentComponent extends Component {
       }
     }
 
-    shouldComponentUpdate(nextProps, nextState) { 
-        console.log('ShouldComponentUpdate()');    
+    // shouldComponentUpdate(nextProps, nextState) { 
+    //     console.log('ShouldComponentUpdate()');    
 
-        // console.log(this.state.name);
-        // console.log(nextState);
+    //     // console.log(this.state.name);
+    //     // console.log(nextState);
 
-        // if (this.state.name !== nextState.name) 
-        //     return true;
+    //     // if (this.state.name !== nextState.name) 
+    //     //     return true;
         
-        return true;
-    }
+    //     return true;
+    // }
 
     changeName = () => {
         this.setState({
@@ -31,14 +32,20 @@ class ParentComponent extends Component {
 
     render() {
 
-        console.log('%c PARENT COMPONENT RENDER()', 'color: red;')
+        console.log('%c PARENT COMPONENT RENDER()', 'color: red; font-size: 14px; font-weight: bold')
 
         return (
             <div>
+                <p>
+                    <span className='red'>Parent Component: </span>
+                    {this.state.name}
+                </p>
+
                 <SimpleComp name={this.state.name}/>
                 <PureComp name={this.state.name}/>
-                <button onClick={this.changeName}>Change State Name</button>
-                <p>{this.state.name}</p>
+                <FunctionComp name={this.state.name}/>
+
+                <button onClick={this.changeName}>Change State Name</button>           
             </div>
         )
     }

@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 export class SimpleComp extends Component {
     render() {
 
-        console.log('%c simple component render()', 'color : blue')
+        console.log('%c Simple Component Render()', 'color : blue; font-size: 14px; font-weight: bold')
 
         return (
             <div>
-                Simple component
+                <p>
+                    <span className='blue'>Simple Component: </span>
+                    {this.props.name}
+                </p>
             </div>
         )
     }
