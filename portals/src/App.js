@@ -1,41 +1,69 @@
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 import './App.css';
-import Modal from './Components/Modal';
+import MyRef from './Components/MyRef';
 
-class App extends Component {
-
+class App extends Component 
+{
   constructor(props) {
     super(props)
   
-    this.state = {
-      showModal: false   
-    }
+    this.refComp = createRef();
   }
 
-  handleShow = () => {
-    this.setState({
-      showModal : true
-    })
-  }
+  handleClick = () => this.refComp.current.addFocus();
+  
 
-  handleHide = () => {
-    this.setState({
-      showModal: false
-    })
-  }
 
-  render() {
-
-    const modal = this.state.showModal && <Modal close={this.handleHide}/>;
-
+  render () {
     return (
-      <div className="App">
-        <button onClick={this.handleShow}>Toggle Modal</button>
-        {modal}
+      <div className='App'>
+          <MyRef ref={this.refComp}/>
+          <button onClick={this.handleClick}>Valider</button>
       </div>
     );
   }
-
 }
 
+
+
+
+
 export default App;
+
+//#region portals
+// class App extends Component {
+
+//   constructor(props) {
+//     super(props)
+  
+//     this.state = {
+//       showModal: false   
+//     }
+//   }
+
+//   handleShow = () => {
+//     this.setState({
+//       showModal : true
+//     })
+//   }
+
+//   handleHide = () => {
+//     this.setState({
+//       showModal: false
+//     })
+//   }
+
+//   render() {
+
+//     const modal = this.state.showModal && <Modal close={this.handleHide}/>;
+
+//     return (
+//       <div className="App">
+//         <button onClick={this.handleShow}>Toggle Modal</button>
+//         {modal}
+//       </div>
+//     );
+//   }
+
+// }
+//#endregion

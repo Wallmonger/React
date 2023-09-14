@@ -12,7 +12,14 @@ code {
     monospace;
 }
 
-.App {
+input:focus {
+  background-color: rgb(9, 76, 99);
+  color: #ffffff;
+  outline-color: rgb(62, 111, 155);
+}
+
+/*#region Portals */
+/* .App {
   position : relative;
   height : 400px;
   width: 200px;
@@ -37,4 +44,6 @@ code {
   padding: 20px;
   min-height: 200px;
   border-radius: 5px
-}
+} */
+
+/*#endregion */
