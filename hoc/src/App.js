@@ -2,6 +2,7 @@ import { Component } from 'react';
 import './App.css';
 import GokuRender from './components/prop-render/GokuRender';
 import VegetaRender from './components/prop-render/VegetaRender';
+import AddHits from './components/prop-render/AddHits';
 
 
 class App extends Component 
@@ -11,8 +12,18 @@ class App extends Component
       <div className='container text-center'>
         <h1>Fight</h1>
         <div className='row'>
-          <VegetaRender name={() => {return "Vegeta"}}/>
-          <GokuRender name={() => {return "Goku"}}/>
+          {/* If AddHits state.fighter.compName == true, return Component, if not, return null  */}
+          <AddHits 
+            render = {(hits, addOne, fighters) => (
+              fighters.vegeta && <VegetaRender hits={hits} addOne={addOne} name="Vegeta"/> 
+            )}
+          />
+          
+          <AddHits 
+            render = {(hits, addOne, fighters) => (
+              fighters.goku && <GokuRender hits={hits} addOne={addOne} name="Goku"/>
+            )}
+          />
         </div>
       </div>
     )
