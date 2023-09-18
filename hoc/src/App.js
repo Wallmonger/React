@@ -14,16 +14,16 @@ class App extends Component
         <div className='row'>
 
           <ErrorBoundary>
-            <Vegeta />
+            <Vegeta/>
           </ErrorBoundary>
 
           <ErrorBoundary>
-            <Goku />
+            <Goku/>
           </ErrorBoundary>
 
 
           <ErrorBoundary>
-            <Frieza />
+            <Frieza/>
           </ErrorBoundary>
         </div>
       </div>
