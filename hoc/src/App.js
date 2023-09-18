@@ -1,35 +1,23 @@
 import { Component } from 'react';
 import './App.css';
-import Vegeta from './components/Vegeta';
-import Goku from './components/Goku';
-import Frieza from './components/Frieza';
-import ErrorBoundary from './components/ErrorBoundary';
+import GokuRender from './components/prop-render/GokuRender';
+import VegetaRender from './components/prop-render/VegetaRender';
+
 
 class App extends Component 
 {
   render() {
-    return(
+    return (
       <div className='container text-center'>
-        <h1>Click</h1>
+        <h1>Fight</h1>
         <div className='row'>
-
-          <ErrorBoundary>
-            <Vegeta/>
-          </ErrorBoundary>
-
-          <ErrorBoundary>
-            <Goku/>
-          </ErrorBoundary>
-
-
-          <ErrorBoundary>
-            <Frieza/>
-          </ErrorBoundary>
+          <VegetaRender name={() => {return "Vegeta"}}/>
+          <GokuRender name={() => {return "Goku"}}/>
         </div>
       </div>
     )
   }
-}
+} 
 
 export default App;
 
@@ -78,4 +66,29 @@ class App extends Component
     );
   }
 } */
+//#endregion
+
+//#region errorBoundary
+// render() {
+//   return(
+//     <div className='container text-center'>
+//       <h1>Click</h1>
+//       <div className='row'>
+
+//         <ErrorBoundary>
+//           <Vegeta/>
+//         </ErrorBoundary>
+
+//         <ErrorBoundary>
+//           <Goku/>
+//         </ErrorBoundary>
+
+
+//         <ErrorBoundary>
+//           <Frieza/>
+//         </ErrorBoundary>
+//       </div>
+//     </div>
+//   )
+// }
 //#endregion
