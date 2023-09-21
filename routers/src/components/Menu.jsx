@@ -1,9 +1,11 @@
+import { Link, NavLink } from 'react-router-dom';
+
 function Menu() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark ps-3">
-      <a className="navbar-brand" href="/">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark ps-3 pb-0">
+      <Link className="navbar-brand" to="/">
         Navbar
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -17,21 +19,21 @@ function Menu() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">
+          <li className="nav-item">
+            <Link className="nav-link" to="/">
               Docs <span className="sr-only"></span>
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/tutorial">
+            <Link className="nav-link" to="tutorial">
               Tutorial
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/community">
+            <NavLink className="nav-link" to="/community">
               Community
-            </a>
-          </li> 
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
