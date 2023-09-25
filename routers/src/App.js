@@ -1,5 +1,6 @@
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Component } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Menu from './components/Menu';
 import Docs from './components/Docs';
 import Tutorials from './components/Tutorials';
@@ -12,8 +13,23 @@ import ErrorPage from './components/ErrorPage';
 // strict just needs to be there (/community/handle will work because /community/ is present)
 // accessible via <Link to="routename">Main</Link>
 
-function App() {
-  return (
+class App extends Component 
+{
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+        underConst: {
+          Docs: false,
+          Tutorials: true,
+          Community: false
+       }
+    }
+  }
+
+
+  render() {
+    return (
     <BrowserRouter>
       <Menu />
       <Switch>
@@ -24,6 +40,8 @@ function App() {
       </Switch>        
     </BrowserRouter>
   );
+  }
+  
 }
 
 export default App;
