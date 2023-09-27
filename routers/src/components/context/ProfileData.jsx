@@ -4,8 +4,8 @@ const ProfileData = () => {
     return (
         <div>
             <p>
-                <a className='btn btn-primary' data-toggle="collapse" href="#collapseExample">
-                    See about xxxxx ?
+                <a className="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    See about xxxxx
                 </a>
             </p>
 

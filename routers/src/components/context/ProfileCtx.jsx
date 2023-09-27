@@ -8,7 +8,7 @@ class ProfileCtx extends Component
         return (
             <div className='container'>
                 <h1>xxxxx</h1>
-                <img src={profileImg} alt="lisa" className='img-thumbnail mb-3' width="700"/>
+                <img src={profileImg} alt="lisa" className='img-thumbnail mb-3' width="600"/>
 
                 <ProfileData />
 
