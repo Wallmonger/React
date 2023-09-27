@@ -1,6 +1,6 @@
 import './App.css';
 import { Component } from 'react';
-import { MyContext } from './components/context/MyContext';
+import MyContext from './components/context/MyContext';
 import ProfileCtx from './components/context/ProfileCtx';
 
 class App extends Component 
@@ -13,7 +13,7 @@ class App extends Component
   }
 
   render() {
-    return (
+    return ( 
       <MyContext.Provider value={this.state.user}>
         <ProfileCtx info={this.state.user}/>
       </MyContext.Provider>
