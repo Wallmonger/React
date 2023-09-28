@@ -1,11 +1,14 @@
 import './App.css';
-import Todo from './components/Todo';
+import ClassCount from './components/useEffect/ClassCount';
+import FunctionCount from './components/useEffect/FunctionCount';
 
 
 function App() {
   return (
-    <div className='container'>
-      <Todo/>
+    <div className='container text-center'>
+        <ClassCount />
+        <hr />
+        <FunctionCount />
     </div>
   );
 }
