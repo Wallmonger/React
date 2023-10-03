@@ -6,7 +6,8 @@ export class ClassCount extends Component {
         super(props)
         
         this.state = {
-            count: 0    
+            count: 0   ,
+            name: '' 
         }
     }
 
@@ -15,7 +16,10 @@ export class ClassCount extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        document.title = `You clicked ${this.state.count} times`;
+        if (this.state.count !== prevState.count) {
+            document.title = `You clicked ${this.state.count} times`;
+            console.log("updated title");
+        }
     }
 
     render() {
@@ -23,6 +27,17 @@ export class ClassCount extends Component {
             <div>
                 <h1>{this.state.count}</h1>
                 <button onClick={() => this.setState({count: this.state.count + 1})} className='btn btn-success w-25'>Set (C) count</button>
+
+                <div className="input-group my-3">
+                    <span className="input-group-text" id="inputGroup-sizing-default">Change State Name</span>
+                    <input type="text" value={this.state.name} className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" onChange={e => {
+                        this.setState({
+                            name: e.target.value
+                        })
+                    }}/>
+                </div>
+
+                <p>State name : <span className='text-secondary'>{this.state.name}</span></p>
             </div>
         )
     }
