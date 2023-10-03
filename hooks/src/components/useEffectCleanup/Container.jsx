@@ -1,12 +1,13 @@
 import {useState} from 'react';
-import ClassDisplayKey from "./ClassDisplayKey";
+import FunctionDisplayKey from './FunctionDisplayKey';
+//import ClassDisplayKey from "./ClassDisplayKey";
 
 function Container() {
 
     const [show, setShow] = useState(true);
 
     const btnDisplay = show ? 'Hide' : 'Show';
-    const ComponentDisplay = show && <ClassDisplayKey /> 
+    const ComponentDisplay = show && <FunctionDisplayKey /> 
 
     return (
         <div className="text-center">
