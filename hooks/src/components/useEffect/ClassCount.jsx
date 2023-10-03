@@ -15,13 +15,6 @@ export class ClassCount extends Component {
         document.title = `You clicked ${this.state.count} times`;
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.count !== prevState.count) {
-            document.title = `You clicked ${this.state.count} times`;
-            console.log("updated title");
-        }
-    }
-
     render() {
         return (
             <div>

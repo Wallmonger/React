@@ -6,9 +6,11 @@ function FunctionCount() {
     const [name, setName] = useState('');
 
     // The second parameter of useEffect is the states[] on which useEffect should be triggered
+    // Empty array => ComponentDidMount()
     useEffect(() => {
         console.log("Update via useEffect");
-    }, [count])
+        document.title = `You clicked ${count} times`;
+    }, [])
 
 
 
