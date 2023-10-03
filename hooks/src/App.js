@@ -1,14 +1,10 @@
 import './App.css';
-import ClassCount from './components/useEffect/ClassCount';
-import FunctionCount from './components/useEffect/FunctionCount';
-
+import Container from './components/useEffectCleanup/Container';
 
 function App() {
   return (
     <div className='container text-center'>
-        <ClassCount />
-        <hr />
-        <FunctionCount />
+        <Container />
     </div>
   );
 }
