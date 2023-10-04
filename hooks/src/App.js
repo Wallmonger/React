@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Profile from './components/useContext/Profile';
 import './App.css';
-import { UserContext } from './components/useContext/MyContexts';
+import { UserContext, ColorContext } from './components/useContext/MyContexts';
 
 
 class App extends Component 
@@ -17,7 +17,9 @@ class App extends Component
   render() {
     return (
       <UserContext.Provider value={this.state.user}>
-        <Profile />
+          <ColorContext.Provider value="red">
+            <Profile />
+          </ColorContext.Provider>
       </UserContext.Provider>
     );
   }

@@ -1,24 +1,18 @@
-import { UserContext } from './MyContexts';
+import { useContext } from 'react';
+import { UserContext, ColorContext } from './MyContexts';
 
 const ContentData = () => {
+
+    const user = useContext(UserContext);
+    const color = useContext(ColorContext);
+
     return (
-        <UserContext.Consumer>
-        {
-            user => {
-                return (
-                    <div>
-                        <ul>
-                            <li>Name : {user.name}</li>
-                            <li>Age : {user.age}</li>
-                        </ul>
-                    </div>
-                )
-            }
-        }
-        </UserContext.Consumer>
-
-
-        
+        <div style={{color: color}}>
+            <ul>
+                <li>name: {user.name}</li>
+                <li>age: {user.age}</li>
+            </ul>
+        </div>
     )
 }
 
