@@ -1,7 +1,7 @@
 import './App.css';
 import { Component } from 'react';
-import MyContext from './components/context/MyContext';
 import ProfileCtx from './components/context/ProfileCtx';
+import MyContext from './components/context/MyContext';
 
 class App extends Component 
 {

@@ -1,12 +1,27 @@
+import { Component } from 'react';
+import Profile from './components/useContext/Profile';
 import './App.css';
-import Container from './components/useEffectCleanup/Container';
+import { UserContext } from './components/useContext/MyContexts';
 
-function App() {
-  return (
-    <div className='container text-center'>
-        <Container />
-    </div>
-  );
+
+class App extends Component 
+{
+
+  state = {
+    user: {
+      name: 'baki',
+      age : 25
+    }
+  }
+
+  render() {
+    return (
+      <UserContext.Provider value={this.state.user}>
+        <Profile />
+      </UserContext.Provider>
+    );
+  }
+  
 }
 
 export default App;
