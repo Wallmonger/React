@@ -1,5 +1,8 @@
+import { memo } from 'react';
 
-const Count = ({count, bgColor}) => {
+const Count = ({count, bgColor, text}) => {
+
+    console.log(`%c Pourcentage ${text} loaded`, 'color: blue')
 
     const progress = {width: count + '%'}
     
@@ -14,4 +17,4 @@ const Count = ({count, bgColor}) => {
     )
 }
 
-export default Count;
+export default memo(Count);
