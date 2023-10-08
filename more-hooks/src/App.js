@@ -1,40 +1,31 @@
-import { useState, useCallback } from 'react';
-import Count from './components/Count';
-import Button from './components/Button';
-import './App.css';
+import { useState, useEffect } from 'react';
+import Profile from './components/Profile';
+import axios from 'axios';
 
+function App() {
 
-function App () {
+  const [count, setCount] = useState(1);
+  const [profile, setProfile] = useState({});
 
-  const [countOne, setCountOne] = useState({ value: 0, btnColor: 'success', increment: 25});
-  const [countTwo, setCountTwo] = useState({ value: 0, btnColor: 'danger', increment: 15});
-
-  // useCallback (callback, changing state)
-  // If countOne has been changed, re-rendering the function. Else the function will remains the same
-
-  const incrementCountOne = useCallback((val) => {
-      console.log('%c IncrementCountOneFunction loaded', 'color: green')
-      countOne.value < 100 && setCountOne({...countOne, value: countOne.value + val} );
-  }, [countOne]);
-
-
-
-  const incrementCountTwo = useCallback((val) => {
-    console.log('%c IncrementCountTwoFunction loaded', 'color: red');
-    countTwo.value < 100 && setCountTwo({...countTwo, value: countTwo.value + val} )
-  }, [countTwo]);
-
-
+  useEffect(() => {
+      axios.get(`https://jsonplaceholder.typicode.com/users/${count}`)
+        .then((response) => {
+            setProfile(response.data);
+        })
+        .catch(error => console.log(error))
+  }, [count])
 
   return (
-    <div className='container'>
-      <Count text="CountOne" count={countOne.value} bgColor={countOne.btnColor} />
-      <Count text="CountTwo" count={countTwo.value} bgColor={countTwo.btnColor} />
+    <div className="container">
+      <h1 className="text-center">useMemo()</h1>
 
-      <Button handleClick={incrementCountOne} btnColor={countOne.btnColor} increment={countOne.increment}>Count 1</Button>
-      <Button handleClick={incrementCountTwo} btnColor={countTwo.btnColor} increment={countTwo.increment}>Count 2</Button>
+      <button className="btn btn-info mb-3" onClick={() => setCount(count + 1)}>Increment {count}</button>
+
+      <button className="btn btn-dark mb-3 float-end">Dark Mode</button>
+
+      <Profile count={count} profile={profile} />
     </div>
-  )
+  );
 }
 
 export default App;
