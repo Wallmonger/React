@@ -1,24 +1,35 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const Input = () => {
 
-    const [name, setName] = useState(null);
+    const [count, setCount] = useState(0);
+    
+    const setIntervalRef = useRef();
+    
 
-    const usernameRef = useRef(null);
-    console.log(usernameRef);
+    useEffect(() => {
+        // Making setInterval available via ref (outside useEffect)
+        setIntervalRef.current = setInterval(() => {
+            setCount(prevCount => {
+                return prevCount + 1;
+            })
+        }, 1000);
 
-    const handleSubmit = () => {
-        setName(usernameRef.current.value);
+        // Clearing
+        return () => {
+           clearInterval(setIntervalRef.current); 
+        }
+
+    }, []);
+
+    const stopIncrement = () => {
+        clearInterval(setIntervalRef.current);
     }
 
-    return(
-        <div>
-            <h1>Name : {name}</h1>
-            <div className="input-group mb-3 mt-3">
-                <span className="input-group-text" id="basic-addon1">Sacré input</span>
-                <input ref={usernameRef} type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-                <button onClick={handleSubmit} type="button" className="btn btn-outline-dark">Submit</button>
-            </div>
+    return (
+        <div>   
+            <h1>{count}</h1>
+            <button onClick={stopIncrement} className='btn btn-outline-dark'>Stop plz</button>
         </div>
     )
 }
