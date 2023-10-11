@@ -1,9 +1,19 @@
-import Input from './components/Input';
+import { useRef } from 'react';
+import NewInput from './components/NewInput';
+import './App.css';
 
-function App() {
+const App = () => {
+
+  const newInputRef = useRef();
+
+  const focusInput = () => {
+    newInputRef.current.focus();
+  }
+
   return (
-    <div className='container'>
-      <Input />
+    <div className='App'>
+      <NewInput name="newer" ref={newInputRef} />
+      <button onClick={focusInput}>Focus</button>
     </div>
     
   );
