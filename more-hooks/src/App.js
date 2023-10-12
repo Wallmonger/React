@@ -1,27 +1,14 @@
-import { useRef } from 'react';
-import NewInput from './components/NewInput';
+import Box from './components/Box';
 import './App.css';
 
 const App = () => {
-
-  const date = new Date();
-
-  const newInputRef = useRef();
-
-  const focusInput = (val) => {
-    newInputRef.current.focus(val);
-    newInputRef.current.countMax();
-
-    console.log(newInputRef.current);
-  }
-
   return (
     <div className='App'>
-      <NewInput ref={newInputRef} />
-      <button onClick={() => focusInput(date.getDay())}>Focus</button>
+      <h1>useLayoutEffect</h1>
+      
+      <Box />
     </div>
-    
-  );
+  )
 }
 
 export default App;
