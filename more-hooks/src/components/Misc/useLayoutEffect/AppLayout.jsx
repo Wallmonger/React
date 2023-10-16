@@ -1,10 +1,12 @@
+import Box from './components/hooks/useLayoutEffect/Box';
 import './App.css';
-import ClickSayHello from './components/hooks/ClickSayHello';
 
 const App = () => {
   return (
     <div className='App'>
-        <ClickSayHello/>
+      <h1>useLayoutEffect</h1>
+
+      <Box />
     </div>
   )
 }
