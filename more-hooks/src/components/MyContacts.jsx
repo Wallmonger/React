@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import useUpdateDocTitle from './hooks/useUpdateDocTitle';
+import useFetch from './hooks/useFetch';
 
 import Search from "./Search";
 import TableUsers from './TableUsers';
@@ -7,27 +8,17 @@ import TableUsers from './TableUsers';
 const MyContacts = () => {
 
     
-    const [users, setUsers] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    
     const [search, setSearch] = useState('');
     const [resultSearch, setResultSearch] = useState([]);
     
     // CustomHook
     useUpdateDocTitle(search);
-
-    useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/users`)
-            .then(response => response.json())
-            .then(json => {
-                setUsers(json);
-                setIsLoading(false);
-            })
-            .catch(err => console.log(err.message));
-    }, []);
+    const {data, isLoading} = useFetch('https://jsonplaceholder.typicode.com/users')
 
     
     const filteredUsers = () => {
-        const foundUsers = users.filter((user) => {
+        const foundUsers = data.filter((user) => {
             return Object.values(user)
                 .join(' ')
                 .toLowerCase()
@@ -36,14 +27,14 @@ const MyContacts = () => {
             
         setResultSearch(foundUsers);
     }
-    
+
     useEffect(() => {
-        if (search !== '') {
+        if (search !== '') 
             filteredUsers();
-        } else {
+        else 
             setResultSearch([]);
-        }
-    }, [search])
+        
+    }, [search]);
     
 
 
@@ -73,7 +64,7 @@ const MyContacts = () => {
             {
                 resultSearch.length === 0 && search !== '' ? msgDisplay('User not found', 'red') 
                 :
-                search === '' ? null
+                search === '' ? msgDisplay('Nothing to search', 'green')
                 :
                 <TableUsers 
                     dataArray={resultSearch}
