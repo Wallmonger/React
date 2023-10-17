@@ -10,11 +10,10 @@ const MyContacts = () => {
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [search, setSearch] = useState('');
+    const [resultSearch, setResultSearch] = useState([]);
     
     // CustomHook
     useUpdateDocTitle(search);
-    
-    console.log(users);
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -25,7 +24,31 @@ const MyContacts = () => {
             })
             .catch(err => console.log(err.message));
     }, []);
+
     
+    const filteredUsers = () => {
+        const foundUsers = users.filter((user) => {
+            return Object.values(user)
+                .join(' ')
+                .toLowerCase()
+                .includes(search.toLowerCase());
+            });
+            
+        setResultSearch(foundUsers);
+    }
+    
+    useEffect(() => {
+        if (search !== '') {
+            filteredUsers();
+        } else {
+            setResultSearch([]);
+        }
+    }, [search])
+    
+
+
+
+
     const handleChange = e => {
         setSearch(e.target.value);
     }
@@ -48,8 +71,12 @@ const MyContacts = () => {
             }
 
             {
+                resultSearch.length === 0 && search !== '' ? msgDisplay('User not found', 'red') 
+                :
+                search === '' ? null
+                :
                 <TableUsers 
-                    dataArray={users}
+                    dataArray={resultSearch}
                 />
             }
            
