@@ -7,8 +7,6 @@ import TableUsers from './TableUsers';
 
 const MyContacts = () => {
 
-    
-    
     const [search, setSearch] = useState('');
     const [resultSearch, setResultSearch] = useState([]);
     

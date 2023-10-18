@@ -1,9 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useDebugValue } from 'react';
 
 const useFetch = (fetchUrl) => {
 
+    
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    // The formatting function is called in dev mode when inspecting with React DevTools.
+    useDebugValue(data, val => {
+        alert('useDebugVal')
+        return JSON.stringify(val);
+    })
+        
 
     useEffect(() => {
         fetch(fetchUrl)
