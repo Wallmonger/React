@@ -12,7 +12,6 @@ const TableUsers = ({dataArray}) => {
             <tbody>
                 {
                     dataArray.map(({id, name, username, email, address}) => {
-                        console.log(address);
                         return (
                             <tr key={id}>
                                 <td>{name}</td>

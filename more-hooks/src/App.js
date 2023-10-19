@@ -4,12 +4,8 @@ import { useState, useEffect } from 'react';
 import TableUsers from './components/TableUsers';
 import Search from './components/Search'; 
 
-import useUpdateDocTitle from './components/hooks/useUpdateDocTitle';
-import useFetch from './components/hooks/useFetch';
 
 const users = fakeUsersGenerator();
-
-console.log(users);
 
 const App = () => {
 
@@ -17,12 +13,11 @@ const App = () => {
   const [resultSearch, setResultSearch] = useState([]);
     
   // CustomHook
-  useUpdateDocTitle(search);
-  const {data, isLoading} = useFetch('https://jsonplaceholder.typicode.com/users')
+  /* const {data, isLoading} = useFetch('https://jsonplaceholder.typicode.com/users') */
   
   const filteredUsers = () => {
         
-    const foundUsers = data.filter((user) => {
+    const foundUsers = users.filter((user) => {
       return Object.values(user)
           .join(' ')
           .toLowerCase()
@@ -41,9 +36,6 @@ const App = () => {
     }, [search]);
     
 
-
-
-
     const handleChange = e => {
         setSearch(e.target.value);
     }
@@ -57,26 +49,25 @@ const App = () => {
 
   return (
     <div className='App'>
-        {
-          isLoading ? msgDisplay('Please wait ...', 'red') : 
-          <Search
-              searchStr={search} 
-              searchHandler={handleChange}
-          /> 
-            }
+      <h1>Contacts</h1>
+      <p>Total: {users.length} members</p>
 
-            {
-                resultSearch.length === 0 && search !== '' ? msgDisplay('User not found', 'red') 
-                :
-                search === '' ? msgDisplay('Nothing to search', 'green')
-                :
-                <TableUsers 
-                    dataArray={resultSearch}
-                />
-            }
+      <Search
+          searchStr={search} 
+          searchHandler={handleChange}
+      /> 
+          
+
+      {
+        search === '' ? null
+        :
+        <TableUsers 
+            dataArray={resultSearch}
+        />
+      }
            
         
-        </div>
+    </div>
     )
 }
 
