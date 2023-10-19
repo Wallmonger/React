@@ -16,6 +16,9 @@ const MyContacts = () => {
 
     
     const filteredUsers = () => {
+
+        
+
         const foundUsers = data.filter((user) => {
             return Object.values(user)
                 .join(' ')
