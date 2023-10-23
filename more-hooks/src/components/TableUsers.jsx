@@ -1,4 +1,4 @@
-const TableUsers = ({dataArray}) => {
+const TableUsers = ({dataArray, notification}) => {
     return (
         <table id="table">
             <thead>
@@ -10,6 +10,9 @@ const TableUsers = ({dataArray}) => {
                 </tr>
             </thead>
             <tbody>
+                
+                {notification && <tr><td colSpan={4} style={{color: '#af8313'}}>Please wait</td></tr>}
+
                 {
                     dataArray.map(({id, name, username, email, address}) => {
                         return (
