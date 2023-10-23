@@ -6,7 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.min.js';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'), {
+    // Is the prefix for useId hook
+    identifierPrefix: 'starkiller'
+});
 root.render(
     <App />
 );
