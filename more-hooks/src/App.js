@@ -1,6 +1,6 @@
 import './App.css';
 import { fakeUsersGenerator } from './data/users';
-import { useState, useEffect, useTransition } from 'react';
+import { useState, useEffect } from 'react';
 import TableUsers from './components/TableUsers';
 import Search from './components/Search'; 
 
@@ -12,7 +12,7 @@ const App = () => {
   const [search, setSearch] = useState('');
   const [resultSearch, setResultSearch] = useState([]);
 
-  const [isPending, startTransition] = useTransition();
+  // const [isPending, startTransition] = useTransition();
     
   // CustomHook
   /* const {data, isLoading} = useFetch('https://jsonplaceholder.typicode.com/users') */
@@ -30,13 +30,16 @@ const App = () => {
     }
 
     useEffect(() => {
-        if (search !== '')
+        if (search !== '') {
+          filteredUsers();
 
-        startTransition(() => {  // The code will be executed in the background, and the UI render will not be blocked
-          filteredUsers(); 
-        })
-        else 
-            setResultSearch([]);
+          // startTransition(() => {  // The code will be executed in the background, and the UI render will not be blocked, set isPending to true
+          //   filteredUsers(); 
+          // })
+        }
+        else {
+          setResultSearch([]);
+        }
         
     }, [search]);
     
@@ -68,7 +71,6 @@ const App = () => {
         :
         <TableUsers 
             dataArray={resultSearch} 
-            notification={isPending}
         />
       }
            

@@ -1,4 +1,9 @@
-const TableUsers = ({dataArray, notification}) => {
+import { useDeferredValue } from "react"
+
+const TableUsers = ({dataArray}) => {
+
+    const deferredValue = useDeferredValue(dataArray);
+
     return (
         <table id="table">
             <thead>
@@ -11,10 +16,10 @@ const TableUsers = ({dataArray, notification}) => {
             </thead>
             <tbody>
                 
-                {notification && <tr><td colSpan={4} style={{color: '#af8313'}}>Please wait</td></tr>}
+                {/* {notification && <tr><td colSpan={4} style={{color: '#af8313'}}>Please wait</td></tr>} */}
 
                 {
-                    dataArray.map(({id, name, username, email, address}) => {
+                    deferredValue.map(({id, name, username, email, address}) => {
                         return (
                             <tr key={id}>
                                 <td>{name}</td>
