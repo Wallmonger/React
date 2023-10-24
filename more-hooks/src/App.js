@@ -1,23 +1,11 @@
 import './App.css';
-import Newsletter from './components/Newsletter';
-import Articles from './components/Articles';
-import NameFields from './components/NameFields';
-
+import MyContacts from './components/MyContacts';
 
 const App = () => {
   return (
-    <div className='App'> 
-        Newsletter
-        <Newsletter />
-        <form>
-          <NameFields />
-        </form>
-
-        <Articles/>
-        <Articles/>
-        <Articles/>
-        <Articles/>
-        <Newsletter/>
+    <div className='App'>
+      <h1>My contacts</h1>
+      <MyContacts />
     </div>
   )
 }
@@ -35,6 +23,35 @@ export default App;
 
 
 
+//#region Newsletter (useId)
+// import './App.css';
+// import Newsletter from './components/Newsletter';
+// import Articles from './components/Articles';
+// import NameFields from './components/NameFields';
+
+
+// const App = () => {
+//   return (
+//     <div className='App'> 
+//         Newsletter
+//         <Newsletter />
+//         <form>
+//           <NameFields />
+//         </form>
+
+//         <Articles/>
+//         <Articles/>
+//         <Articles/>
+//         <Articles/>
+//         <Newsletter/>
+//     </div>
+//   )
+// }
+
+
+// export default App;
+
+//#endregion
 //#region TableUsers
 // import './App.css';
 // import { fakeUsersGenerator } from './data/users';

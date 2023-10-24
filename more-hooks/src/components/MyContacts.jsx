@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import useUpdateDocTitle from './hooks/useUpdateDocTitle';
 import useFetch from './hooks/useFetch';
+import ErrorFallback from './ErrorFallback';
 
 import Search from "./Search";
-import TableUsers from './TableUsers';
+// import TableUsers from './TableUsers';
+const TableUsers = lazy(() => import('./TableUsers')); // Dynamic import, will be imported with bundle only if needed
 
 const MyContacts = () => {
 
@@ -67,9 +70,17 @@ const MyContacts = () => {
                 :
                 search === '' ? msgDisplay('Nothing to search', 'green')
                 :
-                <TableUsers 
-                    dataArray={resultSearch}
-                />
+                
+                // fallback will display something if the component is loading (<TableUsers />)
+                // If there is an error inside ErrorBoundary
+                <ErrorBoundary FallbackComponent={ErrorFallback}>  
+                    <Suspense fallback={<div>Table Component Loading ...</div>}>
+                        <TableUsers 
+                            dataArray={resultSearch}
+                        />
+                    </Suspense>
+
+                </ErrorBoundary>
             }
            
         
